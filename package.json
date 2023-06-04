@@ -3,9 +3,14 @@
   "scripts": {
     "dev": "npx nitropack dev",
     "build": "npx nitropack build",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+    "lint": "eslint ."
   },
   "dependencies": {
     "nitropack": "latest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.4",
+    "eslint": "^8.42.0"
   }
 }
