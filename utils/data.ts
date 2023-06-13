@@ -20,6 +20,9 @@ export interface DetailProp {
 
 const repo = 'github'
 
+/**
+ * 获取配置信息
+ */
 async function getConfig() {
   const { version, categories } = await useStorage(repo).getItem('version.json') as VersionProp
 
@@ -29,6 +32,9 @@ async function getConfig() {
   }
 }
 
+/**
+ * 获取分类及路径信息
+ */
 export async function getCataLog() {
   const { categories } = await getConfig()
   const { path: url, catalogs } = await useStorage(repo).getItem(categories) as CatalogProp
@@ -41,6 +47,10 @@ export async function getCataLog() {
   }
 }
 
+/**
+ * 获取指定分类的详情数据
+ * @param id 分类id
+ */
 export async function getDetail(id: string) {
   const { path } = await getCataLog()
   const info = await useStorage(repo).getItem(`${path}/${id}.json`) as DetailProp[]
