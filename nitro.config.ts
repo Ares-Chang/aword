@@ -9,4 +9,12 @@ export default defineNitroConfig({
       token: process.env.GITHUB_TOKEN,
     },
   },
+  routeRules: {
+    '**': {
+      cors: true, // Enable CORS for all routes
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*', // Access restrictions can be set
+      // },
+    },
+  },
 })
